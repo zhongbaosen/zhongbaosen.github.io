@@ -151,7 +151,7 @@
 
   
     <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2018/03/14/201831402927/">CentOS7.2 yum安装nginx</a>
+      <a class="post-title-link" href="/2018/03/14/201831402927/">CentOS7yum安装nginx</a>
     </h3>
   
 
@@ -161,11 +161,8 @@
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        安装步骤添加nginx到YUM源1rpm -Uvh http://nginx.org/packages/centos/7/noarch/RPMS/nginx-release-centos-7-0.el7.ngx.noarch.rpm
-安装nginx1yum install nginx
-或者
-1yum install -y gcc-c++ make
-启动nginx1systemctl star...
+        安装步骤安装准备首先由于nginx的一些模块依赖一些lib库，所以在安装nginx之前，必须先安装这些lib库，这些依赖库主要有g++、gcc、openssl-devel、pcre-devel和zlib-devel 所以执行如下命令安装
+1yum -y install gcc-c++  pcre pcre-devel   zlib zlib-devel  openssl openssl--d...
     
 
         <a href="/2018/03/14/201831402927/" class="post-more waves-effect waves-button">
