@@ -13,25 +13,25 @@
     
     
     
-    <title>vscode内npm断点调试配置参数 | sEn的个人博客</title>
+    <title>chrome插件开发 | sEn的个人博客</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
     <meta name="theme-color" content="#3F51B5">
     
     
-    <meta name="keywords" content="npm,vscode">
-    <meta name="description" content="编辑launch.json 点击左边竖排的第四个（中间有蜘蛛的那个图标） 点击左边文件launch上调试的下来添加配置，会自动生成launch.json配置为  123456789101112131415161718&amp;#123;    &quot;version&quot;: &quot;0.2.0&quot;,    &quot;configurations&quot;: [      &amp;#123;        &quot;name&quot;: &quot;Launch Egg&quot;">
-<meta name="keywords" content="npm,vscode">
+    <meta name="keywords" content="chrome">
+    <meta name="description" content="前言什么是Chrome插件严格来讲，我们正在说的东西应该叫Chrome扩展(Chrome Extension)，真正意义上的Chrome插件是更底层的浏览器功能扩展，可能需要对浏览器源码有一定掌握才有能力去开发。鉴于Chrome插件的叫法已经习惯，本文也全部采用这种叫法，但读者需深知本文所描述的Chrome插件实际上指的是Chrome扩展。 Chrome插件是一个用Web技术开发、用来增强浏览器功">
+<meta name="keywords" content="chrome">
 <meta property="og:type" content="article">
-<meta property="og:title" content="vscode内npm断点调试配置参数">
-<meta property="og:url" content="https://blog.senshine.top/2018/03/26/2018326155225/index.html">
+<meta property="og:title" content="chrome插件开发">
+<meta property="og:url" content="https://blog.senshine.top/2018/04/09/2018403150235/index.html">
 <meta property="og:site_name" content="sEn的个人博客">
-<meta property="og:description" content="编辑launch.json 点击左边竖排的第四个（中间有蜘蛛的那个图标） 点击左边文件launch上调试的下来添加配置，会自动生成launch.json配置为  123456789101112131415161718&amp;#123;    &quot;version&quot;: &quot;0.2.0&quot;,    &quot;configurations&quot;: [      &amp;#123;        &quot;name&quot;: &quot;Launch Egg&quot;">
+<meta property="og:description" content="前言什么是Chrome插件严格来讲，我们正在说的东西应该叫Chrome扩展(Chrome Extension)，真正意义上的Chrome插件是更底层的浏览器功能扩展，可能需要对浏览器源码有一定掌握才有能力去开发。鉴于Chrome插件的叫法已经习惯，本文也全部采用这种叫法，但读者需深知本文所描述的Chrome插件实际上指的是Chrome扩展。 Chrome插件是一个用Web技术开发、用来增强浏览器功">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-03-26T10:08:01.981Z">
+<meta property="og:updated_time" content="2018-04-09T07:14:43.654Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="vscode内npm断点调试配置参数">
-<meta name="twitter:description" content="编辑launch.json 点击左边竖排的第四个（中间有蜘蛛的那个图标） 点击左边文件launch上调试的下来添加配置，会自动生成launch.json配置为  123456789101112131415161718&amp;#123;    &quot;version&quot;: &quot;0.2.0&quot;,    &quot;configurations&quot;: [      &amp;#123;        &quot;name&quot;: &quot;Launch Egg&quot;">
+<meta name="twitter:title" content="chrome插件开发">
+<meta name="twitter:description" content="前言什么是Chrome插件严格来讲，我们正在说的东西应该叫Chrome扩展(Chrome Extension)，真正意义上的Chrome插件是更底层的浏览器功能扩展，可能需要对浏览器源码有一定掌握才有能力去开发。鉴于Chrome插件的叫法已经习惯，本文也全部采用这种叫法，但读者需深知本文所描述的Chrome插件实际上指的是Chrome扩展。 Chrome插件是一个用Web技术开发、用来增强浏览器功">
     
     <link rel="shortcut icon" href="/favicon.ico">
     <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
@@ -96,7 +96,7 @@
         <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
           <i class="icon icon-lg icon-navicon"></i>
         </a>
-        <div class="flex-col header-title ellipsis">vscode内npm断点调试配置参数</div>
+        <div class="flex-col header-title ellipsis">chrome插件开发</div>
         
         <div class="search-wrap" id="search-wrap">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
@@ -118,11 +118,11 @@
 <header class="content-header post-header">
 
     <div class="container fade-scale">
-        <h1 class="title">vscode内npm断点调试配置参数</h1>
+        <h1 class="title">chrome插件开发</h1>
         <h5 class="subtitle">
             
-                <time datetime="2018-03-26T07:47:03.000Z" itemprop="datePublished" class="page-time">
-  2018-03-26
+                <time datetime="2018-04-09T07:10:09.000Z" itemprop="datePublished" class="page-time">
+  2018-04-09
 </time>
 
 
@@ -141,18 +141,18 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#编辑launch-json"><span class="post-toc-number">1.</span> <span class="post-toc-text">编辑launch.json</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#测试调试断点"><span class="post-toc-number">2.</span> <span class="post-toc-text">测试调试断点</span></a></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#前言"><span class="post-toc-number">1.</span> <span class="post-toc-text">前言</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#什么是Chrome插件"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">什么是Chrome插件</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#学习Chrome插件开发有什么意义"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">学习Chrome插件开发有什么意义</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#为什么是Chrome插件而不是Firefox插件"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">为什么是Chrome插件而不是Firefox插件</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#开发调试"><span class="post-toc-number">2.</span> <span class="post-toc-text">开发调试</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#测试调试断点"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">测试调试断点</span></a></li></ol></li></ol>
         </nav>
     </aside>
 
 
-<article id="post-2018326155225"
+<article id="post-2018403150235"
   class="post-article article-type-post fade" itemprop="blogPost">
 
     <div class="post-card">
-        <h1 class="post-card-title">vscode内npm断点调试配置参数</h1>
+        <h1 class="post-card-title">chrome插件开发</h1>
         <div class="post-meta">
-            <time class="post-time" title="2018-03-26 15:47:03" datetime="2018-03-26T07:47:03.000Z"  itemprop="datePublished">2018-03-26</time>
+            <time class="post-time" title="2018-04-09 15:10:09" datetime="2018-04-09T07:10:09.000Z"  itemprop="datePublished">2018-04-09</time>
 
             
 
@@ -165,10 +165,25 @@
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <h2 id="编辑launch-json"><a href="#编辑launch-json" class="headerlink" title="编辑launch.json"></a>编辑launch.json</h2><ul>
-<li>点击左边竖排的第四个（中间有蜘蛛的那个图标）</li>
-<li>点击左边文件launch上调试的下来添加配置，会自动生成launch.json<br>配置为</li>
+            <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><h2 id="什么是Chrome插件"><a href="#什么是Chrome插件" class="headerlink" title="什么是Chrome插件"></a>什么是Chrome插件</h2><p>严格来讲，我们正在说的东西应该叫Chrome扩展(Chrome Extension)，真正意义上的Chrome插件是更底层的浏览器功能扩展，可能需要对浏览器源码有一定掌握才有能力去开发。鉴于Chrome插件的叫法已经习惯，本文也全部采用这种叫法，但读者需深知本文所描述的Chrome插件实际上指的是Chrome扩展。</p>
+<p>Chrome插件是一个用Web技术开发、用来增强浏览器功能的软件，它其实就是一个由HTML、CSS、JS、图片等资源组成的一个.crx后缀的压缩包.</p>
+<h2 id="学习Chrome插件开发有什么意义"><a href="#学习Chrome插件开发有什么意义" class="headerlink" title="学习Chrome插件开发有什么意义"></a>学习Chrome插件开发有什么意义</h2><p>增强浏览器功能，轻松实现属于自己的“定制版”浏览器，等等。</p>
+<p>Chrome插件提供了很多实用API供我们使用，包括但不限于：</p>
+<ul>
+<li>书签控制；</li>
+<li>下载控制；</li>
+<li>窗口控制；</li>
+<li>标签控制；</li>
+<li>网络请求控制，各类事件监听；</li>
+<li>自定义原生菜单；</li>
+<li>完善的通信机制；</li>
+<li>等等；</li>
 </ul>
+<h2 id="为什么是Chrome插件而不是Firefox插件"><a href="#为什么是Chrome插件而不是Firefox插件" class="headerlink" title="为什么是Chrome插件而不是Firefox插件"></a>为什么是Chrome插件而不是Firefox插件</h2><p>Chrome占有率更高，更多人用；<br>开发更简单；<br>应用场景更广泛，Firefox插件只能运行在Firefox上，而Chrome除了Chrome浏览器之外，还可以运行在所有webkit内核的国产浏览器，比如360极速浏览器、360安全浏览器、搜狗浏览器、QQ浏览器等等；<br>除此之外，Firefox浏览器也对Chrome插件的运行提供了一定的支持；</p>
+<h1 id="开发调试"><a href="#开发调试" class="headerlink" title="开发调试"></a>开发调试</h1><p>Chrome插件没有严格的项目结构要求，只要保证本目录有一个manifest.json即可，也不需要专门的IDE，普通的web开发工具即可。</p>
+<p>从右上角菜单-&gt;更多工具-&gt;扩展程序可以进入 插件管理页面，也可以直接在地址栏输入 chrome://extensions 访问。</p>
+<p>勾选开发者模式即可以文件夹的形式直接加载插件，否则只能安装.crx格式的文件。Chrome要求插件必须从它的Chrome应用商店安装，其它任何网站下载的都无法直接安装，所以，其实我们可以把crx文件解压，然后通过开发者模式直接加载。</p>
+<p>开发中，代码有任何改动都必须重新加载插件，只需要在插件管理页按下Ctrl+R即可，以防万一最好还把页面刷新一下。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="string">"version"</span>: <span class="string">"0.2.0"</span>,</span><br><span class="line">    <span class="string">"configurations"</span>: [</span><br><span class="line">      &#123;</span><br><span class="line">        <span class="string">"name"</span>: <span class="string">"Launch Egg"</span>,</span><br><span class="line">        <span class="string">"type"</span>: <span class="string">"node"</span>,</span><br><span class="line">        <span class="string">"request"</span>: <span class="string">"launch"</span>,</span><br><span class="line">        <span class="string">"cwd"</span>: <span class="string">"<span class="variable">$&#123;workspaceRoot&#125;</span>"</span>,</span><br><span class="line">        <span class="string">"runtimeExecutable"</span>: <span class="string">"npm"</span>,</span><br><span class="line">        <span class="string">"windows"</span>: &#123; <span class="string">"runtimeExecutable"</span>: <span class="string">"npm.cmd"</span> &#125;,</span><br><span class="line">        <span class="string">"runtimeArgs"</span>: [ <span class="string">"run"</span>, <span class="string">"debug"</span> ],</span><br><span class="line">        <span class="string">"console"</span>: <span class="string">"integratedTerminal"</span>,</span><br><span class="line">        <span class="string">"protocol"</span>: <span class="string">"auto"</span>,</span><br><span class="line">        <span class="string">"restart"</span>: <span class="literal">true</span>,</span><br><span class="line">        <span class="string">"port"</span>: 9999</span><br><span class="line">      &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>点击调试上的三角形 </p>
 <h2 id="测试调试断点"><a href="#测试调试断点" class="headerlink" title="测试调试断点"></a>测试调试断点</h2><p>选择 controller的home.js<br>在中间的任意一行右键添加断点列，然后在访问web这个controller时就可以达到断点的效果了</p>
@@ -180,12 +195,12 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2018-03-26T10:08:01.981Z" itemprop="dateUpdated">2018-03-26 18:08:01</time>
+    最后更新时间：<time datetime="2018-04-09T07:14:43.654Z" itemprop="dateUpdated">2018-04-09 15:14:43</time>
 </span><br>
 
 
         
-        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2018/03/26/2018326155225/" target="_blank" rel="external">https://blog.senshine.top/2018/03/26/2018326155225/</a>
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2018/04/09/2018403150235/" target="_blank" rel="external">https://blog.senshine.top/2018/04/09/2018403150235/</a>
         
     </div>
     
@@ -206,7 +221,7 @@
 
         <div class="post-footer">
             
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/npm/">npm</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vscode/">vscode</a></li></ul>
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/chrome/">chrome</a></li></ul>
 
 
             
@@ -216,7 +231,7 @@
 <div class="page-share" id="pageShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://blog.senshine.top/2018/03/26/2018326155225/&title=《vscode内npm断点调试配置参数》 — sEn的个人博客&pic=https://blog.senshine.top/img/headimg.png" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://blog.senshine.top/2018/04/09/2018403150235/&title=《chrome插件开发》 — sEn的个人博客&pic=https://blog.senshine.top/img/headimg.png" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -226,22 +241,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://blog.senshine.top/2018/03/26/2018326155225/&title=《vscode内npm断点调试配置参数》 — sEn的个人博客&source=热爱研究、游戏、学习" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://blog.senshine.top/2018/04/09/2018403150235/&title=《chrome插件开发》 — sEn的个人博客&source=热爱研究、游戏、学习" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://blog.senshine.top/2018/03/26/2018326155225/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://blog.senshine.top/2018/04/09/2018403150235/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《vscode内npm断点调试配置参数》 — sEn的个人博客&url=https://blog.senshine.top/2018/03/26/2018326155225/&via=https://blog.senshine.top" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《chrome插件开发》 — sEn的个人博客&url=https://blog.senshine.top/2018/04/09/2018403150235/&via=https://blog.senshine.top" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://blog.senshine.top/2018/03/26/2018326155225/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://blog.senshine.top/2018/04/09/2018403150235/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -261,21 +276,14 @@
     </div>
 
     
-<nav class="post-nav flex-row flex-justify-between">
-  
-    <div class="waves-block waves-effect prev">
-      <a href="/2018/04/09/2018403150235/" id="post-prev" class="post-nav-link">
-        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
-        <h4 class="title">chrome插件开发</h4>
-      </a>
-    </div>
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
   
 
   
     <div class="waves-block waves-effect next">
-      <a href="/2018/03/26/2018326112615/" id="post-next" class="post-nav-link">
+      <a href="/2018/03/26/2018326155225/" id="post-next" class="post-nav-link">
         <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
-        <h4 class="title">Centos7使用yum安装Mysql</h4>
+        <h4 class="title">vscode内npm断点调试配置参数</h4>
       </a>
     </div>
   
@@ -367,7 +375,7 @@
 <div class="global-share" id="globalShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://blog.senshine.top/2018/03/26/2018326155225/&title=《vscode内npm断点调试配置参数》 — sEn的个人博客&pic=https://blog.senshine.top/img/headimg.png" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://blog.senshine.top/2018/04/09/2018403150235/&title=《chrome插件开发》 — sEn的个人博客&pic=https://blog.senshine.top/img/headimg.png" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -377,22 +385,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://blog.senshine.top/2018/03/26/2018326155225/&title=《vscode内npm断点调试配置参数》 — sEn的个人博客&source=热爱研究、游戏、学习" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://blog.senshine.top/2018/04/09/2018403150235/&title=《chrome插件开发》 — sEn的个人博客&source=热爱研究、游戏、学习" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://blog.senshine.top/2018/03/26/2018326155225/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://blog.senshine.top/2018/04/09/2018403150235/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《vscode内npm断点调试配置参数》 — sEn的个人博客&url=https://blog.senshine.top/2018/03/26/2018326155225/&via=https://blog.senshine.top" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《chrome插件开发》 — sEn的个人博客&url=https://blog.senshine.top/2018/04/09/2018403150235/&via=https://blog.senshine.top" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://blog.senshine.top/2018/03/26/2018326155225/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://blog.senshine.top/2018/04/09/2018403150235/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -403,7 +411,7 @@
 <div class="page-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
-    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://blog.senshine.top/2018/03/26/2018326155225/" alt="微信分享二维码">
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://blog.senshine.top/2018/04/09/2018403150235/" alt="微信分享二维码">
 </div>
 
 
