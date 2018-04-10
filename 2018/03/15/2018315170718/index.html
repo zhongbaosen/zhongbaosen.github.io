@@ -28,7 +28,7 @@
 <meta property="og:site_name" content="sEn的个人博客">
 <meta property="og:description" content="具体步骤安装git首先安装git，一般而言，现在的服务器已经内置了git安装包，我们只需要执行简单的安装命令即可安装。比如： 1yum install git 创建git用户及权限我们当然不允许直接使用root来进行通信交互了，所以，我们创建一个git用户来作为今后提交代码的用户。 1adduser git 执行这条命令之后，你发现在/home目录下多了一个git目录，按理来说，现在，你的系统中多">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-04-09T10:32:33.548Z">
+<meta property="og:updated_time" content="2018-04-10T09:22:14.923Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="服务器部署git代码托管">
 <meta name="twitter:description" content="具体步骤安装git首先安装git，一般而言，现在的服务器已经内置了git安装包，我们只需要执行简单的安装命令即可安装。比如： 1yum install git 创建git用户及权限我们当然不允许直接使用root来进行通信交互了，所以，我们创建一个git用户来作为今后提交代码的用户。 1adduser git 执行这条命令之后，你发现在/home目录下多了一个git目录，按理来说，现在，你的系统中多">
@@ -196,6 +196,7 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">touch README</span><br></pre></td></tr></table></figure>
 <p>暂存README<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git add README</span><br></pre></td></tr></table></figure></p>
 <p>提交代码并描述更新内容<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git commit -m <span class="string">"更新个说明"</span></span><br></pre></td></tr></table></figure></p>
+<p>绑定项目的地址<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote add origin git@xxx.xxx.xxx.xxx:/yourdir/arepoforyourproject.git</span><br></pre></td></tr></table></figure></p>
 <p>第一次更新到matser主分支上<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push -u origin master</span><br></pre></td></tr></table></figure></p>
 <h3 id="非22端口的配置"><a href="#非22端口的配置" class="headerlink" title="非22端口的配置"></a>非22端口的配置</h3><p>当gitlab服务器ssh端口不是默认的22时，使用ssh连接gitlab会出现上面的错误</p>
 <p>　解决方法：<br>　修改/etc/gitlab/gitlab.rd</p>
@@ -210,7 +211,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2018-04-09T10:32:33.548Z" itemprop="dateUpdated">2018-04-09 18:32:33</time>
+    最后更新时间：<time datetime="2018-04-10T09:22:14.923Z" itemprop="dateUpdated">2018-04-10 17:22:14</time>
 </span><br>
 
 
