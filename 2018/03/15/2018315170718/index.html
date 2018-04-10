@@ -28,7 +28,7 @@
 <meta property="og:site_name" content="sEn的个人博客">
 <meta property="og:description" content="具体步骤安装git首先安装git，一般而言，现在的服务器已经内置了git安装包，我们只需要执行简单的安装命令即可安装。比如： 1yum install git 创建git用户及权限我们当然不允许直接使用root来进行通信交互了，所以，我们创建一个git用户来作为今后提交代码的用户。 1adduser git 执行这条命令之后，你发现在/home目录下多了一个git目录，按理来说，现在，你的系统中多">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-04-10T09:22:14.923Z">
+<meta property="og:updated_time" content="2018-04-10T10:21:35.664Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="服务器部署git代码托管">
 <meta name="twitter:description" content="具体步骤安装git首先安装git，一般而言，现在的服务器已经内置了git安装包，我们只需要执行简单的安装命令即可安装。比如： 1yum install git 创建git用户及权限我们当然不允许直接使用root来进行通信交互了，所以，我们创建一个git用户来作为今后提交代码的用户。 1adduser git 执行这条命令之后，你发现在/home目录下多了一个git目录，按理来说，现在，你的系统中多">
@@ -179,11 +179,14 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">passwd git 123456 #(你的密码)</span><br></pre></td></tr></table></figure>
 <p>这个密码用在你后面提交代码的时候使用。</p>
 <h3 id="公钥的配置"><a href="#公钥的配置" class="headerlink" title="公钥的配置"></a>公钥的配置</h3><p>这个是git里面比较特殊的一步操作，通信的时候，客户端与服务器需要一个证书进行验证。操作方法很简单，首先在你自己的电脑上（centos）生成自己的一个公钥：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd ~</span><br><span class="line"></span><br><span class="line">ssh-keygen -t rsa</span><br></pre></td></tr></table></figure>
+<p>– 注意这个是客户端操作<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name <span class="string">"your name"</span>  </span><br><span class="line">  </span><br><span class="line">git config --global user.email <span class="string">"xxxx@xxx.com"</span></span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd ~</span><br><span class="line"></span><br><span class="line">ssh-keygen -t rsa -C &quot;xxxx@xxx.com&quot;</span><br></pre></td></tr></table></figure>
 <p>这时你自己电脑上就有一个公钥了，但是在哪里呢？在.ssh目录下，.开头的文件夹都是隐藏的，但是可以cd进去。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd .ssh</span><br><span class="line"></span><br><span class="line">vi id_rsa.pub</span><br></pre></td></tr></table></figure>
 <p>这样就能看到你的公钥了，把所有的内容复制下来。接下来，我们去回服务器上面操作。</p>
+<p>–注意这个是客户端操作</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">cd /home/git/</span><br><span class="line"></span><br><span class="line">mkdir .ssh</span><br><span class="line"></span><br><span class="line">cd .ssh</span><br><span class="line"></span><br><span class="line">vi authorized_keys</span><br></pre></td></tr></table></figure>
+<p>复制你的id_rsa.pub内的公钥到authorized_keys内就完工了</p>
 <p>接下来，我们用git命令初始化一个仓库：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git init --bare arepoforyourproject.git</span><br></pre></td></tr></table></figure>
 <p>初始化完成之后，这个空的仓库就OK了。</p>
@@ -211,7 +214,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2018-04-10T09:22:14.923Z" itemprop="dateUpdated">2018-04-10 17:22:14</time>
+    最后更新时间：<time datetime="2018-04-10T10:21:35.664Z" itemprop="dateUpdated">2018-04-10 18:21:35</time>
 </span><br>
 
 
