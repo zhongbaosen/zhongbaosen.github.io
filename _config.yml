@@ -103,4 +103,4 @@ theme: indigo
 deploy:
   type: git
   repo: git@github.com:zhongbaosen/zhongbaosen.github.io.git
-
+  branch: master
