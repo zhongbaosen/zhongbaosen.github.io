@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>服务器部署git代码托管 | sEn的个人博客</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="centos,git">
+    <meta name="description" content="具体步骤安装git首先安装git，一般而言，现在的服务器已经内置了git安装包，我们只需要执行简单的安装命令即可安装。比如： 1yum install git 创建git用户及权限我们当然不允许直接使用root来进行通信交互了，所以，我们创建一个git用户来作为今后提交代码的用户。 1adduser git 执行这条命令之后，你发现在/home目录下多了一个git目录，按理来说，现在，你的系统中多">
+<meta name="keywords" content="centos,git">
+<meta property="og:type" content="article">
+<meta property="og:title" content="服务器部署git代码托管">
+<meta property="og:url" content="https://blog.senshine.top/2018/03/15/2018315170718/index.html">
+<meta property="og:site_name" content="sEn的个人博客">
+<meta property="og:description" content="具体步骤安装git首先安装git，一般而言，现在的服务器已经内置了git安装包，我们只需要执行简单的安装命令即可安装。比如： 1yum install git 创建git用户及权限我们当然不允许直接使用root来进行通信交互了，所以，我们创建一个git用户来作为今后提交代码的用户。 1adduser git 执行这条命令之后，你发现在/home目录下多了一个git目录，按理来说，现在，你的系统中多">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-04-10T10:21:35.664Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="服务器部署git代码托管">
+<meta name="twitter:description" content="具体步骤安装git首先安装git，一般而言，现在的服务器已经内置了git安装包，我们只需要执行简单的安装命令即可安装。比如： 1yum install git 创建git用户及权限我们当然不允许直接使用root来进行通信交互了，所以，我们创建一个git用户来作为今后提交代码的用户。 1adduser git 执行这条命令之后，你发现在/home目录下多了一个git目录，按理来说，现在，你的系统中多">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/headimg.png">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">sEn</h5>
+          <a href="mailto:446990332@qq.com" title="446990332@qq.com" class="mail">446990332@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/zhongbaosen" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://www.baidu.com/"  >
+                <i class="icon icon-lg icon-link"></i>
+                友情链接
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">服务器部署git代码托管</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">服务器部署git代码托管</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-03-15T09:08:17.000Z" itemprop="datePublished" class="page-time">
+  2018-03-15
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#具体步骤"><span class="post-toc-number">1.</span> <span class="post-toc-text">具体步骤</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#安装git"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">安装git</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#创建git用户及权限"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">创建git用户及权限</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#公钥的配置"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">公钥的配置</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#试验克隆"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">试验克隆</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#上传本地代码到私有仓库"><span class="post-toc-number">1.5.</span> <span class="post-toc-text">上传本地代码到私有仓库</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#非22端口的配置"><span class="post-toc-number">1.6.</span> <span class="post-toc-text">非22端口的配置</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#多用户和权限管理"><span class="post-toc-number">1.7.</span> <span class="post-toc-text">多用户和权限管理</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-2018315170718"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">服务器部署git代码托管</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-03-15 17:08:17" datetime="2018-03-15T09:08:17.000Z"  itemprop="datePublished">2018-03-15</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h2 id="具体步骤"><a href="#具体步骤" class="headerlink" title="具体步骤"></a>具体步骤</h2><h3 id="安装git"><a href="#安装git" class="headerlink" title="安装git"></a>安装git</h3><p><strong>首先安装git，一般而言，现在的服务器已经内置了git安装包，我们只需要执行简单的安装命令即可安装。比如：<br></strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install git</span><br></pre></td></tr></table></figure>
+<h3 id="创建git用户及权限"><a href="#创建git用户及权限" class="headerlink" title="创建git用户及权限"></a>创建git用户及权限</h3><p>我们当然不允许直接使用root来进行通信交互了，所以，我们创建一个git用户来作为今后提交代码的用户。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adduser git</span><br></pre></td></tr></table></figure>
+<p>执行这条命令之后，你发现在/home目录下多了一个git目录，按理来说，现在，你的系统中多了这个git用户，并且家目录在/home/git。但是，我们并不希望这个用户通过ssh连接到服务器上面去，所以，我们要禁止这个用户使用ssh连接上去进行操作。我们通过编辑一个权限文件来处理：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/passwd</span><br></pre></td></tr></table></figure>
+<p>找到类似于<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git:x:1001:1001:,,,:/home/git:/bin/bash</span><br></pre></td></tr></table></figure></p>
+<p>这样的行，你看到那个末尾的/bin/bash，就是允许ssh连接操作的权限，我们把它改为/user/bin/git-shell，结果如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git:x:1001:1001:,,,:/home/git:/usr/bin/git-shell</span><br></pre></td></tr></table></figure>
+<p>这样处理好，git就不能ssh连上去了（实际上是可以的，只不过会闪退）。</p>
+<p>我们还得给git分配一个密码，执行：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">passwd git 123456 #(你的密码)</span><br></pre></td></tr></table></figure>
+<p>这个密码用在你后面提交代码的时候使用。</p>
+<h3 id="公钥的配置"><a href="#公钥的配置" class="headerlink" title="公钥的配置"></a>公钥的配置</h3><p>这个是git里面比较特殊的一步操作，通信的时候，客户端与服务器需要一个证书进行验证。操作方法很简单，首先在你自己的电脑上（centos）生成自己的一个公钥：</p>
+<p>– 注意这个是客户端操作<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name <span class="string">"your name"</span>  </span><br><span class="line">  </span><br><span class="line">git config --global user.email <span class="string">"xxxx@xxx.com"</span></span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd ~</span><br><span class="line"></span><br><span class="line">ssh-keygen -t rsa -C &quot;xxxx@xxx.com&quot;</span><br></pre></td></tr></table></figure>
+<p>这时你自己电脑上就有一个公钥了，但是在哪里呢？在.ssh目录下，.开头的文件夹都是隐藏的，但是可以cd进去。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd .ssh</span><br><span class="line"></span><br><span class="line">vi id_rsa.pub</span><br></pre></td></tr></table></figure>
+<p>这样就能看到你的公钥了，把所有的内容复制下来。接下来，我们去回服务器上面操作。</p>
+<p>–注意这个是客户端操作</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">cd /home/git/</span><br><span class="line"></span><br><span class="line">mkdir .ssh</span><br><span class="line"></span><br><span class="line">cd .ssh</span><br><span class="line"></span><br><span class="line">vi authorized_keys</span><br></pre></td></tr></table></figure>
+<p>复制你的id_rsa.pub内的公钥到authorized_keys内就完工了</p>
+<p>接下来，我们用git命令初始化一个仓库：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git init --bare arepoforyourproject.git</span><br></pre></td></tr></table></figure>
+<p>初始化完成之后，这个空的仓库就OK了。</p>
+<p>这里有一个细节，就是.git目录必须要有可读写权限，因为当我们在push的时候，是使用git用户推送到服务器上面去，会有一个写入的过程，如果不赋予可写权限，push就会失败。</p>
+<h3 id="试验克隆"><a href="#试验克隆" class="headerlink" title="试验克隆"></a>试验克隆</h3><p>回到你本地的电脑上，我们通过克隆来试试仓库是否可以使用：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone git@10.0.0.121:/var/git/arepoforyourproject.git</span><br></pre></td></tr></table></figure></p>
+<p>然后会提示你输入git的密码，输入进去，然后会再提示你克隆了一个空白的版本库。这说明服务器已经OK了。</p>
+<h3 id="上传本地代码到私有仓库"><a href="#上传本地代码到私有仓库" class="headerlink" title="上传本地代码到私有仓库"></a>上传本地代码到私有仓库</h3><p>在服务器上创建了空白的版本库后,例如你是在window下进行上传,打开项目路径,右键打开git bash,输入指令</p>
+<p>初始化git<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git init</span><br></pre></td></tr></table></figure></p>
+<p>例如你要创建一个文件README</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">touch README</span><br></pre></td></tr></table></figure>
+<p>暂存README<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git add README</span><br></pre></td></tr></table></figure></p>
+<p>提交代码并描述更新内容<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git commit -m <span class="string">"更新个说明"</span></span><br></pre></td></tr></table></figure></p>
+<p>绑定项目的地址<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote add origin git@xxx.xxx.xxx.xxx:/yourdir/arepoforyourproject.git</span><br></pre></td></tr></table></figure></p>
+<p>第一次更新到matser主分支上<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push -u origin master</span><br></pre></td></tr></table></figure></p>
+<h3 id="非22端口的配置"><a href="#非22端口的配置" class="headerlink" title="非22端口的配置"></a>非22端口的配置</h3><p>当gitlab服务器ssh端口不是默认的22时，使用ssh连接gitlab会出现上面的错误</p>
+<p>　解决方法：<br>　修改/etc/gitlab/gitlab.rd</p>
+<p>　gitlab_rails[‘gitlab_shell_ssh_port’] = 9988    修改为sshd_config里的端口</p>
+<p>sudo gitlab-ctl reconfigure     执行重新载入配置文件<br>登录查看gitlab的项目地址可以看到域名后加了个端口</p>
+<h3 id="多用户和权限管理"><a href="#多用户和权限管理" class="headerlink" title="多用户和权限管理"></a>多用户和权限管理</h3><p>如果团队很小，把每个人的公钥收集起来放到服务器的/home/git/.ssh/authorized_keys文件里就是可行的。如果团队有几百号人，就没法这么玩了，这时，可以用Gitosis来管理公钥。</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-04-10T10:21:35.664Z" itemprop="dateUpdated">2018-04-10 18:21:35</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2018/03/15/2018315170718/" target="_blank" rel="external">https://blog.senshine.top/2018/03/15/2018315170718/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="https://blog.senshine.top">
+            <img src="/img/headimg.png" alt="sEn">
+            sEn
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/centos/">centos</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/">git</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://blog.senshine.top/2018/03/15/2018315170718/&title=《服务器部署git代码托管》 — sEn的个人博客&pic=https://blog.senshine.top/img/headimg.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://blog.senshine.top/2018/03/15/2018315170718/&title=《服务器部署git代码托管》 — sEn的个人博客&source=热爱研究、游戏、学习" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://blog.senshine.top/2018/03/15/2018315170718/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《服务器部署git代码托管》 — sEn的个人博客&url=https://blog.senshine.top/2018/03/15/2018315170718/&via=https://blog.senshine.top" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://blog.senshine.top/2018/03/15/2018315170718/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2018/03/20/201832095843/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">js十大排序算法</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2018/03/15/2018315140242/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">Nginx反向代理及web部署</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        喜欢的请打赏~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>sEn &copy; 2015 - 2018</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://blog.senshine.top/2018/03/15/2018315170718/&title=《服务器部署git代码托管》 — sEn的个人博客&pic=https://blog.senshine.top/img/headimg.png" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://blog.senshine.top/2018/03/15/2018315170718/&title=《服务器部署git代码托管》 — sEn的个人博客&source=热爱研究、游戏、学习" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://blog.senshine.top/2018/03/15/2018315170718/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《服务器部署git代码托管》 — sEn的个人博客&url=https://blog.senshine.top/2018/03/15/2018315170718/&via=https://blog.senshine.top" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://blog.senshine.top/2018/03/15/2018315170718/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://blog.senshine.top/2018/03/15/2018315170718/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
